@@ -51,7 +51,7 @@ class Background extends StatelessWidget {
 
           begin: Alignment.centerLeft,
           end: Alignment.center,
-          
+
           colors: [
             Color(0xff33333E),
             Color(0xff201E28),
@@ -82,7 +82,30 @@ class Lyrics extends StatelessWidget {
   }
 }
 
-class TitlePlay extends StatelessWidget { 
+class TitlePlay extends StatefulWidget { 
+
+  @override
+  State<TitlePlay> createState() => _TitlePlayState();
+}
+
+class _TitlePlayState extends State<TitlePlay> with SingleTickerProviderStateMixin{
+
+  bool isPlaying = false;
+  late AnimationController playAnimation;
+
+  @override
+  void initState() {
+
+    playAnimation = AnimationController(vsync: this, duration: Duration(milliseconds: 500));
+    
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    this.playAnimation.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -104,8 +127,19 @@ class TitlePlay extends StatelessWidget {
             elevation: 0,
             highlightElevation: 0,
             backgroundColor: Color(0xffF8CB51),
-            child: Icon(Icons.play_arrow),
-            onPressed: (){}
+            child: AnimatedIcon( 
+              icon: AnimatedIcons.play_pause,
+              progress: playAnimation,
+              ),
+            onPressed: (){
+              if (this.isPlaying){
+                playAnimation.reverse();
+                this.isPlaying = false;
+              }else{
+                playAnimation.forward();
+                this.isPlaying = true;
+              }
+            }
             ),
 
         ],
