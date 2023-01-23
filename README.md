@@ -1,6 +1,18 @@
 # music_player
 
-A new Flutter project.
+A music player app made in Flutter
+
+![image](https://user-images.githubusercontent.com/51382458/214110982-95bf0b74-abe1-4059-969f-92f4f1875097.png)
+
+## What did i use in this app?
+
+- Create images that rotate
+- Use animation controllers
+- AnimatedIcons
+- Drivers Animated Icons
+- audio playback
+- progress bars
+- time management
 
 ## Getting Started
 
