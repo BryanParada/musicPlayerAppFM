@@ -13,9 +13,45 @@ class MusicPlayerPage extends StatelessWidget {
           CustomAppBar(),
 
           ImageDiscDuration(),
+
+          TitlePlay(),
+
+
         ],
       )
    );
+  }
+}
+
+class TitlePlay extends StatelessWidget { 
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 45),
+      margin: EdgeInsets.only(top: 50),
+      child: Row(
+        children: <Widget>[
+          Column(
+            children: <Widget>[
+              Text('Dear Someone', style: TextStyle( fontSize: 30, color: Colors.white.withOpacity(0.8))),
+              Text('-Mystery-', style: TextStyle( fontSize: 15, color: Colors.white.withOpacity(0.8))),
+            ],
+          ),
+
+          Spacer(),
+
+          FloatingActionButton(
+            elevation: 0,
+            highlightElevation: 0,
+            backgroundColor: Color(0xffF8CB51),
+            child: Icon(Icons.play_arrow),
+            onPressed: (){}
+            ),
+
+        ],
+      ),
+    );
   }
 }
 
