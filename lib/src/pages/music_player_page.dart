@@ -1,6 +1,9 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:music_player/src/helpers/helpers.dart';
+import 'package:music_player/src/models/audioplayer_model.dart';
 import 'package:music_player/src/widgets/custom_appbar.dart';
+import 'package:provider/provider.dart';
 
 
 class MusicPlayerPage extends StatelessWidget {
@@ -132,12 +135,17 @@ class _TitlePlayState extends State<TitlePlay> with SingleTickerProviderStateMix
               progress: playAnimation,
               ),
             onPressed: (){
+
+              final audioPlayerModel = Provider.of<AudioPlayerModel>(context, listen: false);
+
               if (this.isPlaying){
                 playAnimation.reverse();
                 this.isPlaying = false;
+                audioPlayerModel.controller.stop();
               }else{
                 playAnimation.forward();
                 this.isPlaying = true;
+                audioPlayerModel.controller.repeat();
               }
             }
             ),
@@ -215,6 +223,9 @@ class ImageDisc extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final audioPlayerModel = Provider.of<AudioPlayerModel>(context);
+
     return Container(
       padding: EdgeInsets.all(20),
       width: 220,
@@ -224,7 +235,16 @@ class ImageDisc extends StatelessWidget {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            Image( image: AssetImage('assets/Cover.jpg')),
+
+            SpinPerfect(
+              duration: Duration( seconds: 10),
+              infinite: true,
+
+              manualTrigger: true,
+              controller: (AnimationController) => audioPlayerModel.controller = AnimationController,
+
+              child: Image( image: AssetImage('assets/Cover.jpg'))
+              ),
 
             Container(
               width: 25,
