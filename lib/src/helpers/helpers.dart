@@ -1,0 +1,50 @@
+
+
+List<String> getLyrics() {
+
+  return [
+"Dear Someone",
+"I wrote this letter many many years ago",
+"Dear Someone",
+"It might have traveled across oceans you don't know",
+"Dear Someone",
+"The world I'm living in ain't what I used to know",
+"Dear Someone",
+"All we believed in were only lies we were told",
+"We were told",
+"Beware",
+"Don't do the same mistakes we made",
+"And pray",
+"Just keep your children loved and safe",
+"The world will find a way",
+"Dear Someone",
+"Will find a way",
+"In all the lies that we were told",
+"If only we could find some hope",
+"The world will find a way",
+"Dear Someone",
+"Oh",
+"Dear Someone",
+"Dear Someone",
+"People running trying to find a place to hide",
+"Dear Someone",
+"A child is born at dawn, three suns arise",
+"Beware",
+"Don't do the same mistakes we made",
+"And pray",
+"Just keep your children loved and safe",
+"You might also like",
+"Time Goes By",
+"Mystery",
+"The World is a Game",
+"Mystery",
+"Delusion Rain",
+"Mystery",
+"Don't do the same mistakes we made",
+"Just keep your children loved and safe",
+"The world will find a way",
+"Dear Someone",
+
+  ];
+
+}
