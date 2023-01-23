@@ -23,14 +23,58 @@ class ImageDiscDuration extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 30),
+      margin: EdgeInsets.only( top: 70),
       child: Row(
         children: [
  
           ImageDisc(),
+          SizedBox(width: 20,),
 
-          //TODO: Barra progreso
+          ProgressBar(),
+          SizedBox(width: 20,),
 
+        ],
+      ),
+    );
+  }
+}
 
+class ProgressBar extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+
+    final style = TextStyle(color: Colors.white.withOpacity(0.4));
+
+    return Container(
+      child: Column(
+        children: [
+
+          Text('00:00', style: style),
+          SizedBox( height: 10,),
+          Stack(
+            children: <Widget>[
+
+              Container(
+                width: 3,
+                height: 230,
+                color: Colors.white.withOpacity(0.1)
+              ),
+
+               Positioned(
+                bottom: 0,
+                 child: Container(
+                  width: 3,
+                  height: 150,
+                  color: Colors.white.withOpacity(0.8)
+                             ),
+               ),  
+
+            ],
+          ),
+
+          Text('00:00', style: style),
 
         ],
       ),
@@ -44,8 +88,8 @@ class ImageDisc extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(20),
-      width: 250,
-      height: 250,
+      width: 220,
+      height: 220,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(200),
         child: Stack(
